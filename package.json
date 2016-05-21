@@ -1,0 +1,27 @@
+{
+  "name": "gruszko-bot",
+  "version": "0.1.0",
+  "description": "Bot, ktory zglasza wykopowe wykroczenia",
+  "main": "dist/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mati365/gruszko-bot.git"
+  },
+  "keywords": [
+    "gruszka",
+    "wykop",
+    "kabel"
+  ],
+  "author": "Mati365",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mati365/gruszko-bot/issues"
+  },
+  "homepage": "https://github.com/Mati365/gruszko-bot#readme"
+}
