@@ -47,7 +47,6 @@ var Bot = function () {
 
         if (!_this.verifyString(entry['body'], _this.badWords)) {
           var body = _lodash2.default.template(_this.templates[Math.floor(_this.templates.length * Math.random())])({ nick: entry['author'] });
-          console.log(body);
           if (!_lodash2.default.find(comments, function (comment) {
             return comment['author'] == 'Mati365';
           })) {
