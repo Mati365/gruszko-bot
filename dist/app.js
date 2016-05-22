@@ -27,7 +27,7 @@ var Bot = function () {
     , /qwa/i, /jprdl/i, /pierdo\w+/i // pierdolić
     , /szmat[ao]/i // szmata
     , /cwel/i, /pi[zź]d[ayzo]i?e?/i, /testmanderigona/i, /penis/i, /pines/i, /cipk?a/i, /c?h[u|ó]j/i, /zajebi/i, /zapier/i];
-    this.templates = ['Użytkowniku @<%= nick %>, proszę przestrzegaj zasad netykiety ( ͡° ʖ̯ ͡°)', '@<%= nick %> Twoje wulgarne komentarze zgarszają użytkowników Wykopu, proszę wyrażać się kulturalniej.'];
+    this.templates = ['Użytkowniku @<%= nick %>, proszę przestrzegaj zasad netykiety ( ͡° ʖ̯ ͡°)', '@<%= nick %> Twoje wulgarne komentarze zgarszają użytkowników Wykopu, proszę wyrażać się kulturalniej.', 'Osoby przeklinające, takie jak @<%= nick %>, powinno się banować z automatu ( ͡° ʖ̯ ͡°)', '@<%= nick %> ehh... a za te przekeństwa to bana dostaniesz', '@<%= nick %> Twoje poste są cienke, 0/10', '@<%= nick %> A zgłosić Cię do administracji? Będziesz jeszcze klnąć na Wykop.pl? :]', '@<%= nick %> Mówią mi, że kabluje. Ale robię to w dobrej sprawie, na Ciebie też na kabluje z powodu Twoich wulgaryzmów.', '@<%= nick %> Nikogo to nie interesuje, możesz usunąć konto - jeśli nie to administracja zrobi to za Ciebie, za Twoje wulgaryzmy.', '@<%= nick %> Wraz z @Manderigon zgłosimy Twój post ze względu na wulgaryzmy'];
   }
 
   _createClass(Bot, [{
@@ -50,9 +50,8 @@ var Bot = function () {
           if (!_lodash2.default.find(comments, function (comment) {
             return comment['author'] == 'Mati365';
           })) {
-            console.log('Niegrzeczny ', entry['author'], '! Wiadomosc:', entry['body']);
             _this.client.request('entries/addcomment', { body: body }, { method: [data['id']] }).then(function (res) {
-              return console.log(res);
+              console.log(entry['author'] + ' - wpis ' + entry['id'] + ' - zostal ukarany - ' + res);
             });
           }
         }
@@ -94,5 +93,4 @@ var Bot = function () {
 
 ;
 
-new Bot().run();
 module.exports = new Bot();
