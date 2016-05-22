@@ -1,4 +1,4 @@
-<p align="center"><a href="http://www.wykop.pl/ludzie/Gruszka1992/" target="_blank"><img width="160px" src="http://openclipart.lynms.edu.hk/clipart/chovynz/chovynz_Pineapple_Icon.svg"></a></p>
+<p align="center"><a href="http://www.wykop.pl/ludzie/Gruszka1992/" target="_blank"><img src="http://www.wpclipart.com/food/fruit/pear/pear_icon3.png"></a></p>
 <p align="center">
   <a href='http://opensource.org/licenses/MIT'><img src='https://img.shields.io/badge/license-MIT-green.svg?style=flat'></img></a>
   
