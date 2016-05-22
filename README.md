@@ -1,14 +1,14 @@
-<p align="center"><a href="http://www.wykop.pl/ludzie/Gruszka1992/" target="_blank"><img src="http://www.wpclipart.com/food/fruit/pear/pear_icon3.png"></a></p>
+<p align="center"><a href="http://www.wykop.pl/ludzie/Manderigon/" target="_blank"><img src="http://www.wpclipart.com/food/fruit/pear/pear_icon3.png"></a></p>
 <p align="center">
   <a href='http://opensource.org/licenses/MIT'><img src='https://img.shields.io/badge/license-MIT-green.svg?style=flat'></img></a>
   
   <a href='http://opensource.org/licenses/MIT'><img src='https://img.shields.io/wercker/ci/wercker/docs.svg'></img></a>
-  <a href='http://www.wykop.pl/ludzie/Gruszka1992/'><img src='https://img.shields.io/jenkins/t/https/jenkins.qa.ubuntu.com/precise-desktop-amd64_default.svg'></img></a>
-  <a href='http://www.wykop.pl/ludzie/Gruszka1992/'><img src='https://img.shields.io/coverity/ondemand/streams/STREAM.svg'></img></a>
-  <a href='http://www.wykop.pl/ludzie/Gruszka1992/'><img src='https://img.shields.io/github/downloads/atom/atom/total.svg'></img></a>
+  <a href='http://www.wykop.pl/ludzie/Manderigon/'><img src='https://img.shields.io/jenkins/t/https/jenkins.qa.ubuntu.com/precise-desktop-amd64_default.svg'></img></a>
+  <a href='http://www.wykop.pl/ludzie/Manderigon/'><img src='https://img.shields.io/coverity/ondemand/streams/STREAM.svg'></img></a>
+  <a href='http://www.wykop.pl/ludzie/Manderigon/'><img src='https://img.shields.io/github/downloads/atom/atom/total.svg'></img></a>
   <br>
-  <a href='http://www.wykop.pl/ludzie/Gruszka1992/'><img src='https://img.shields.io/npm/v/npm.svg'></img></a>
-  <a href='http://www.wykop.pl/ludzie/Gruszka1992/'><img src='https://img.shields.io/versioneye/d/ruby/rails.svg'></img></a>
+  <a href='http://www.wykop.pl/ludzie/Manderigon/'><img src='https://img.shields.io/npm/v/npm.svg'></img></a>
+  <a href='http://www.wykop.pl/ludzie/Manderigon/'><img src='https://img.shields.io/versioneye/d/ruby/rails.svg'></img></a>
 </p>
 
 # gruszko-bot
