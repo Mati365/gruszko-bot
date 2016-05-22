@@ -49,7 +49,7 @@ var Bot = function () {
         if (!_this.verifyString(entry['body'], _this.badWords)) {
           var body = _lodash2.default.template(_this.templates[Math.floor(_this.templates.length * Math.random())])({ nick: entry['author'] });
           if (!_lodash2.default.find(comments, function (comment) {
-            return comment['author'] == 'Mati365';
+            return comment['author'] == 'Mati365' && comment['body'].indexOf(entry['author']) === -1;
           })) {
             _this.client.request('entries/addcomment', { body: body }, { method: [data['id']] }).then(function (res) {
               console.log(entry['author'] + ' - wpis ' + entry['id'] + ' - zostal ukarany - ' + res);
@@ -57,14 +57,14 @@ var Bot = function () {
           }
         }
       };
-      if (data['body'].indexOf('#bekazlewactwa') > -1) this.client.request('entries/index', null, { method: [data['id']] }).then(function (_ref) {
+      if (data['body'].indexOf('#bekazlewactwa') > -1 || !this.verifyString(data['body'], this.badWords)) this.client.request('entries/index', null, { method: [data['id']] }).then(function (_ref) {
         var comments = _ref.comments;
 
         comments = comments.concat([data]);
         _lodash2.default.each(comments, function (entry) {
           return checkBlock(entry, comments);
         });
-      });else checkBlock(data);
+      });
     }
   }, {
     key: 'run',
@@ -85,7 +85,7 @@ var Bot = function () {
       };
 
       search();
-      setInterval(search.bind(this), 60000);
+      setInterval(search.bind(this), 3 * 60 * 1000);
     }
   }]);
 
