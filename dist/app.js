@@ -47,11 +47,11 @@ var Bot = function () {
 
         if (!_this.verifyString(entry['body'], _this.badWords)) {
           var body = _lodash2.default.template(_this.templates[Math.floor(_this.templates.length * Math.random())])({ nick: entry['author'] });
+          console.log(body);
           if (!_lodash2.default.find(comments, function (comment) {
             return comment['author'] == 'Mati365';
           })) {
             console.log('Niegrzeczny ', entry['author'], '! Wiadomosc:', entry['body']);
-            _this.cache.push(cacheKey);
             _this.client.request('entries/addcomment', { body: body }, { method: [data['id']] }).then(function (res) {
               return console.log(res);
             });
@@ -77,7 +77,6 @@ var Bot = function () {
         _this2.lastId = 0;
         _this2.client.request('stream/index').then(function (data) {
           _lodash2.default.each(data.reverse(), function (entry) {
-            console.log(entry['id'], _this2.lastId);
             if (entry['id'] > _this2.lastId) {
               _this2.parseEntry(entry);
               _this2.lastId = entry['id'];
