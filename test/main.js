@@ -1,6 +1,5 @@
 const expect = require('chai').expect
-    , Client = require('../dist/api.js')
-    , Bot = require('../dist/app.js');
+    , Client = require('../dist/api.js');
 
 describe('gruszko-bot', function() {
   describe('#api', function() {
@@ -30,12 +29,6 @@ describe('gruszko-bot', function() {
       });
       expect(params).to.equal('param1,123,param2,321');
       expect(Client.serializeParams()).to.equal('');
-    });
-  });
-
-  describe('#bot', function() {
-    it('works', function() {
-      Bot.run();
     });
   });
 });
