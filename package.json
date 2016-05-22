@@ -1,13 +1,14 @@
 {
   "name": "gruszko-bot",
   "version": "0.1.0",
-  "description": "Bot, ktory zglasza wykopowe wykroczenia",
+  "description": "Bot zglaszajacy wykopowe wykroczenia",
   "main": "dist/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/.bin/gulp build"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,17 @@
   "bugs": {
     "url": "https://github.com/Mati365/gruszko-bot/issues"
   },
-  "homepage": "https://github.com/Mati365/gruszko-bot#readme"
+  "homepage": "https://github.com/Mati365/gruszko-bot#readme",
+  "devDependencies": {
+    "babel-eslint": "^6.0.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.9.0",
+    "chai": "^3.5.0",
+    "eslint": "^2.10.2",
+    "eslint-plugin-babel": "^3.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-mocha": "^2.2.0",
+    "run-sequence": "^1.2.0"
+  }
 }
