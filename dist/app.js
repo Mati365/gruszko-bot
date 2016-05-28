@@ -25,7 +25,7 @@ var Bot = function () {
     , /qwa/i, /jprdl/i, /pierdo\w+/i // pierdolić
     , /szmat[ao]/i // szmata
     , /cwel/i, /pi[zź]d[ayzo]i?e?/i, /testmanderigona/i, /penis/i, /pines/i, /cipk?a/i, /c?h[u|ó]j/i, /zajebi/i, /zapier/i];
-    this.templates = ['@<%= nick %>, wykryto wulgaryzmy w Twoim wpisie ( ͡° ʖ̯ ͡°) zrób #pokazmorde albo to zgłoszę. Wygenerowano automatycznie przez ostoje prawilności na Wykopie, **TestBot**', '@<%= nick %>, wykryto wulgaryzmy w Twoim wpisie ( ͡° ʖ̯ ͡°) zrób #rozdajo albo to zgłoszę. Wygenerowano automatycznie przez ostoje prawilności na Wykopie, **TestBot**', '@<%= nick %>, wykryto wulgaryzmy w Twoim wpisie ( ͡° ʖ̯ ͡°) zrób wyjdź z piwnicy albo to zgłoszę. Wygenerowano automatycznie przez ostoje prawilności na Wykopie, **TestBot**'];
+    this.templates = ['@<%= nick %> plz nie przeklinaj hultaju', '@<%= nick %> nie przeklinaj mireczku'];
   }
 
   _createClass(Bot, [{
@@ -46,10 +46,10 @@ var Bot = function () {
         if (!_this.verifyString(entry['body'], _this.badWords)) {
           var body = _lodash2.default.template(_this.templates[Math.floor(_this.templates.length * Math.random())])({ nick: entry['author'] });
           if (!_lodash2.default.find(comments, function (comment) {
-            return comment['author'] == 'TestBot' && comment['body'].indexOf(entry['author']) === -1;
+            return comment['author'] == 'TestBot';
           })) {
             _this.client.request('entries/addcomment', { body: body }, { method: [data['id']] }).then(function (res) {
-              console.log(entry['author'] + ' - wpis ' + entry['id'] + ' - zostal ukarany - ' + res);
+              console.log(entry['author'] + ' - wpis ' + entry['id'] + ' - zostal ukarany', res);
             });
           }
         }
@@ -93,8 +93,8 @@ var Bot = function () {
 
 // CLI
 var keys = _lodash2.default.merge({
-  app: process.env.appKey,
-  secret: process.env.secretKey,
-  account: process.env.accountKey
+  app: process.env.appKey || '4Ac50eaivm',
+  secret: process.env.secretKey || 'H8IA8kj3rY',
+  account: process.env.accountKey || 'u146l0Xlsyj5rzcx56ZH'
 }, _yargs.argv);
 new Bot(keys).run();
