@@ -6,6 +6,8 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _yargs = require('yargs');
+
 var _api = require('./api');
 
 var _api2 = _interopRequireDefault(_api);
@@ -15,20 +17,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Bot = function () {
-  function Bot() {
+  function Bot(keys) {
     _classCallCheck(this, Bot);
 
-    this.client = new _api2.default({
-      app: 'YjED2JGsO9',
-      secret: 'oNiF8V3Yfw',
-      account: 't3FB3XyoPeH3EGkLyVsI'
-    });
+    this.client = new _api2.default(keys);
     this.badWords = [/[qk]u?r[wf][ao]/i // kurwa
     , /qwa/i, /jprdl/i, /pierdo\w+/i // pierdolić
     , /szmat[ao]/i // szmata
     , /cwel/i, /pi[zź]d[ayzo]i?e?/i, /testmanderigona/i, /penis/i, /pines/i, /cipk?a/i, /c?h[u|ó]j/i, /zajebi/i, /zapier/i];
-    this.templates = ['Użytkowniku @<%= nick %>, proszę przestrzegaj zasad netykiety ( ͡° ʖ̯ ͡°)', '@<%= nick %> Twoje wulgarne komentarze zgarszają użytkowników Wykopu, proszę wyrażać się kulturalniej.', 'Osoby przeklinające, takie jak @<%= nick %>, powinno się banować z automatu ( ͡° ʖ̯ ͡°)', '@<%= nick %> ehh... a za te przekeństwa to bana dostaniesz', '@<%= nick %> Twoje poste są cienke, 0/10', '@<%= nick %> A zgłosić Cię do administracji? Będziesz jeszcze klnąć na Wykop.pl? :]', '@<%= nick %> Mówią mi, że kabluje. Ale robię to w dobrej sprawie, na Ciebie też na kabluje z powodu Twoich wulgaryzmów.', '@<%= nick %> Nikogo to nie interesuje, możesz usunąć konto - jeśli nie to administracja zrobi to za Ciebie, za Twoje wulgaryzmy.', '@<%= nick %> Wraz z @Manderigon zgłosimy Twój post ze względu na wulgaryzmy'];
-    this.run();
+    this.templates = ['@<%= nick %>, wykryto wulgaryzmy w Twoim wpisie ( ͡° ʖ̯ ͡°) zrób #pokazmorde albo to zgłoszę. Wygenerowano automatycznie przez ostoje prawilności na Wykopie, **TestBot**', '@<%= nick %>, wykryto wulgaryzmy w Twoim wpisie ( ͡° ʖ̯ ͡°) zrób #rozdajo albo to zgłoszę. Wygenerowano automatycznie przez ostoje prawilności na Wykopie, **TestBot**', '@<%= nick %>, wykryto wulgaryzmy w Twoim wpisie ( ͡° ʖ̯ ͡°) zrób wyjdź z piwnicy albo to zgłoszę. Wygenerowano automatycznie przez ostoje prawilności na Wykopie, **TestBot**'];
   }
 
   _createClass(Bot, [{
@@ -49,7 +46,7 @@ var Bot = function () {
         if (!_this.verifyString(entry['body'], _this.badWords)) {
           var body = _lodash2.default.template(_this.templates[Math.floor(_this.templates.length * Math.random())])({ nick: entry['author'] });
           if (!_lodash2.default.find(comments, function (comment) {
-            return comment['author'] == 'Mati365' && comment['body'].indexOf(entry['author']) === -1;
+            return comment['author'] == 'TestBot' && comment['body'].indexOf(entry['author']) === -1;
           })) {
             _this.client.request('entries/addcomment', { body: body }, { method: [data['id']] }).then(function (res) {
               console.log(entry['author'] + ' - wpis ' + entry['id'] + ' - zostal ukarany - ' + res);
@@ -72,7 +69,7 @@ var Bot = function () {
       var _this2 = this;
 
       var search = function search() {
-        console.log('Szukam mirko...');
+        console.log('Przeszukuje mirko...');
         _this2.lastId = 0;
         _this2.client.request('stream/index').then(function (data) {
           _lodash2.default.each(data.reverse(), function (entry) {
@@ -94,4 +91,10 @@ var Bot = function () {
 
 ;
 
-module.exports = new Bot();
+// CLI
+var keys = _lodash2.default.merge({
+  app: process.env.appKey,
+  secret: process.env.secretKey,
+  account: process.env.accountKey
+}, _yargs.argv);
+new Bot(keys).run();
